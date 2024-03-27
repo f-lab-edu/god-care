@@ -1,6 +1,6 @@
 plugins {
+    id 'io.freefair.lombok' version '8.6'
     id 'java-library'
-    id "io.freefair.lombok" version "8.6"
 }
 
 repositories {
@@ -8,6 +8,5 @@ repositories {
 }
 
 dependencies {
-    // slf4j
     implementation 'org.slf4j:slf4j-api:1.7.31'
 }

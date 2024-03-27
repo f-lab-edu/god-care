@@ -1,8 +1,8 @@
 plugins {
+    id 'io.freefair.lombok' version '8.6'
+    id 'io.spring.dependency-management' version '1.1.4'
     id 'java'
     id 'org.springframework.boot' version '2.7.15'
-    id 'io.spring.dependency-management' version '1.1.4'
-    id "io.freefair.lombok" version "8.6"
 }
 
 repositories {
@@ -16,23 +16,21 @@ configurations {
 }
 
 dependencies {
-    implementation project(":god-care-common")
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation "org.springframework.boot:spring-boot-starter-validation"
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    // swagger
+    implementation project(':god-care-common')
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
     implementation 'io.springfox:springfox-swagger-ui:3.0.0'
-    // slf4j
     implementation 'org.slf4j:slf4j-api:1.7.31'
-    // spring boot annotation
-    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 java {
     toolchain {
-        sourceCompatibility = '11'
         languageVersion = JavaLanguageVersion.of(11)
+        sourceCompatibility = '11'
     }
 }
 
